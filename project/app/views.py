@@ -22,7 +22,7 @@ def inicio(request):
 			logout(request)
 		else:			
 			if request.user.perfil == 'Administrador':
-				return HttpResponseRedirect(reverse('administracion'))
+				return HttpResponseRedirect(reverse('index'))
 	if request.method == "POST":
 		formulario = LoginForm(request.POST)
 		if formulario.is_valid():

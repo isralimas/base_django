@@ -9,7 +9,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
 	url(r'^$', inicio, name='inicio'),
 	url(r'^salir/$', salir, name='salir'),
-	url(r'^inicio/$', index, name='index'),
+	url(r'^index/$', index, name='index'),
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),

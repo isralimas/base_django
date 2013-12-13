@@ -8,8 +8,8 @@ from models import *
 
 User = get_user_model()
 class CrearusuarioForm(forms.ModelForm):
-    password1 = forms.CharField(label="Contrase«Ða", widget=forms.PasswordInput)
-    password2 = forms.CharField(label="Verifica contrase«Ða", widget=forms.PasswordInput)
+    password1 = forms.CharField(label="Password", widget=forms.PasswordInput)
+    password2 = forms.CharField(label="Password", widget=forms.PasswordInput, help_text="Introduce de nuevo tu password")
 
     class Meta:
         model = Usuario
@@ -18,7 +18,7 @@ class CrearusuarioForm(forms.ModelForm):
         password1 = self.cleaned_data.get("password1")
         password2 = self.cleaned_data.get("password2")
         if password1 and password2 and password1 != password2:
-            raise forms.ValidationError("Las contrase«Ðas no coinciden")
+            raise forms.ValidationError("Las passwords no coinciden")
         return password2
     def save(self, commit=True):
         user = super(CrearusuarioForm, self).save(commit=False)
@@ -28,7 +28,7 @@ class CrearusuarioForm(forms.ModelForm):
         return user
 
 class CambiarusuarioForm(forms.ModelForm):
-    password = ReadOnlyPasswordHashField(help_text="<a href='password/'>Cambiar contrase«Ða</a>")
+    password = ReadOnlyPasswordHashField(help_text="<a href='password/'>Cambiar password</a>")
     class Meta:
         model = Usuario
     def clean_password(self):
