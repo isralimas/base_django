@@ -1,0 +1,4 @@
+# Local development dependencies go here
+-r base.txt
+Werkzeug==0.9.4
+django-extensions==1.2.5
