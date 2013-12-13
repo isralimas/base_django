@@ -1,4 +1,4 @@
-# -*- encoding: utf-8 -*-
+# -*- coding: utf-8 -*-
 from models import *
 from forms import *
 from django.utils.translation import ugettext_lazy as _
@@ -36,8 +36,6 @@ class MyUserAdmin(UserAdmin):
             query = Permission.objects.filter(content_type__app_label="index")
             kwargs['queryset'] = query
         return super(MyUserAdmin, self).formfield_for_manytomany(db_field, request=request, **kwargs)
-
-
 
 admin.site.register(Usuario, MyUserAdmin)
 

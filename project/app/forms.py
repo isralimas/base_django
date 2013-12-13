@@ -28,7 +28,7 @@ class CrearusuarioForm(forms.ModelForm):
         return user
 
 class CambiarusuarioForm(forms.ModelForm):
-    password = ReadOnlyPasswordHashField(help_text="<a href='password/'>Cambiar password</a>")
+    password = ReadOnlyPasswordHashField(help_text="<a href='password/'>Cambiar contraseña</a>")
     class Meta:
         model = Usuario
     def clean_password(self):
