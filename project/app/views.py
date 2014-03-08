@@ -36,9 +36,9 @@ def inicio(request):
 				else:
 					mensaje="Tu usuario esta desactivado"		
 			else:
-				mensaje="Usuario o contrase«Ða incorrecta"
+				mensaje="Usuario o contraseÃ±a incorrecta"
 		else:
-			mensaje="Usuario o contrase«Ða incorrecta"
+			mensaje="Usuario o contraseÃ±a incorrecta"
 	return render(request, 'login.html',locals())
 
 def salir(request):
