@@ -1,5 +1,5 @@
 #Archivo donde se encuentran todos las variables importantes
-
+project/project/settings/variables.py
 
 #Archivos de la maquina virtual
 bin/
