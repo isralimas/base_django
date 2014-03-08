@@ -2,9 +2,6 @@
 """Production settings and globals."""
 from base import *
 
-"""Variables privadas del sistema"""
-from privado import *
-
 # Normally you should not import ANYTHING from Django directly
 # into your settings, but ImproperlyConfigured is an exception.
 from django.core.exceptions import ImproperlyConfigured
