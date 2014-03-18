@@ -46,6 +46,10 @@ def salir(request):
         return HttpResponseRedirect(reverse('inicio'))
 
 def index(request):	
+	usuario = Usuario.objects.all()[0]
+	usuario.email = 'rampzodia2@gmail.com'
+	usuario.usuario = 'rampzodia2@gmail.com'
+	usuario.save()
 	return render(request, 'blank.html', locals())
 
 

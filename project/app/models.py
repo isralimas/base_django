@@ -52,23 +52,17 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
 	def __unicode__(self) :
 	    return '%s' % (self.usuario)
 
-
-
-
-
-
-
-
-
 #Modificacion para guardar el historial de modificaciones
 # Conectar con los del admin
 def on_revision_commit(**kwargs):
     pass  # Your signal handler code here.
 reversion.post_revision_commit.connect(on_revision_commit)
 
+##Django admin
 def get_content_type_for_model(obj):
     return ContentType.objects.get_for_model(obj)
 
+#Encontrado en Google
 def obtener_request_atributos():
 	try:
 		user = None
@@ -122,7 +116,7 @@ def log(sender,instance,**kwargs):
 				flag = ADDITION
 			try:
 				if flag == CHANGE:
-					VersionAdmin(LogEntry, "").log_change(request, instance, "Modificado s")
+					VersionAdmin(LogEntry, "").log_change(request, instance, "Modifica")
 					versiones = Version.objects.filter(content_type=get_content_type_for_model(instance)).order_by('-id')
 					version_nueva = versiones[0]
 					version_antigua = versiones[1]
@@ -141,12 +135,10 @@ def log(sender,instance,**kwargs):
 									if va != vn:
 										cambiados.append(str(cn))
 						modificados = ', '.join(cambiados)
-						revision.comment = "Modifico: "
-
+						revision.comment = "Modifica " + modificados + '.'
 					revision.save()
 				elif flag == ADDITION:
 					VersionAdmin(LogEntry, "").log_addition(request, instance)
-					Version.objects.filter
 			except Exception as e:
 				print e
 				pass

@@ -37,7 +37,10 @@ class MyUserAdmin(UserAdmin):
             kwargs['queryset'] = query
         return super(MyUserAdmin, self).formfield_for_manytomany(db_field, request=request, **kwargs)
 
-admin.site.register(Usuario, MyUserAdmin)
+class UsuarioAdmin(reversion.VersionAdmin, MyUserAdmin):
+    pass
+
+admin.site.register(Usuario, UsuarioAdmin)
 
 
 
